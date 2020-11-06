@@ -43,3 +43,6 @@ jspm_packages
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore vscode setting
+/.vscode/settings.json
