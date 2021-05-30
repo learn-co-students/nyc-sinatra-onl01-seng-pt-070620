@@ -22,15 +22,17 @@ class LandmarksController < ApplicationController
     if @landmark.valid?
       @landmark.save
 
-      redirect "landmarks/#{@landmark.id}"
+      redirect "/landmarks/#{@landmark.id}"
     end
   end
 
   patch '/landmarks/:id' do
     @landmark = Landmark.find_by(id: params[:id])
 
-    @landmark.update(name: params[:name], year_completed: params[:year_completed])
+    if @landmark.update(name: params[:name], year_completed: params[:year_completed])
 
-    erb :"landmarks/#{@landmark.id}"
+      erb :"/landmarks/#{@landmark.id}"
+
+    end
   end
 end

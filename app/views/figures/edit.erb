@@ -1,8 +1,10 @@
-<h2>Create Figure</h2>
+<h2>Edit Figure</h2>
 
-    <form action="/figures" method="post">
+    <form action="/figures/<%= @figure.id %>" method="post">
+    <input type="hidden" id="hidden" name="_method" value="patch">
+
         <label>Name: </label>
-        <input type="text" id="figure_name" name="figure[name]"><br>
+        <input type="text" id="figure_name" name="figure[name]" value="<%= @figure.name %>"><br>
 
         <h3>Titles</h3>
         <% Title.all.each do |title| %>
@@ -25,7 +27,7 @@
         <label>Year:</label>
             <input type="text" name="landmark[year_completed]">
 
-        <input type="submit" id="submit" value="Create New Figure">
+        <input type="submit" id="submit" value="Edit Figure">
     </form>
 
     
